@@ -7,10 +7,10 @@ const app = express();
 app.use(express.json()); 
 app.use(cors());
 
-const authRoutes = require('./routes/auth');
+const authRoutes = require('./backend/routes/auth');
 app.use('/api/auth', authRoutes);
-app.use('/api/records', require('./routes/record'));
-app.use('/api/dashboard', require('./routes/dashboard'));
+app.use('/api/records', require('./backend/routes/record'));
+app.use('/api/dashboard', require('./backend/routes/dashboard'));
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('Database connected'))
